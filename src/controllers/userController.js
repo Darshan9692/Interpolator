@@ -4,7 +4,7 @@ const axios = require("axios");
 const geolib = require("geolib");
 
 exports.getCoordinates = catchAsyncErrors(async (req, res, next) => {
-    const { currentLocation,pickupLocation } = req.body;
+    const { currentLocation,pickupLocation } = req.params;
     const current = await axios.get(`http://nominatim.openstreetmap.org/search?format=json&q=${currentLocation}`);
     const pickup = await axios.get(`http://nominatim.openstreetmap.org/search?format=json&q=${pickupLocation}`);
     
@@ -25,6 +25,9 @@ exports.getCoordinates = catchAsyncErrors(async (req, res, next) => {
     }
 
     const jsonCoordinates = JSON.stringify(interpolatedCoords, null, 2);
-    console.log(jsonCoordinates);
+    res.status(200).send({
+        success:true,
+        data:jsonCoordinates
+    })
 })
 

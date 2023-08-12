@@ -24,7 +24,7 @@ app.listen(port, () => {
 const user = require("./src/routes/userRoute");
 
 
-app.use("/api",user);
+app.use("/",user);
 
 app.get("/",function(req,res){
     res.send("Hello");

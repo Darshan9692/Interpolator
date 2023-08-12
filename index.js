@@ -26,6 +26,10 @@ const user = require("./src/routes/userRoute");
 
 app.use("/api",user);
 
+app.get("/",function(req,res){
+    res.send("Hello");
+})
+
 
 // unhandled promise rejection
 process.on("unhandledRejection",(err)=>{

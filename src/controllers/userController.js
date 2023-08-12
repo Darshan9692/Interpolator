@@ -13,7 +13,7 @@ exports.getCoordinates = catchAsyncErrors(async (req, res, next) => {
     const currentCoords = current.data[0];
     const pickupCoords = pickup.data[0];
 
-    const numberOfPoints = 5;
+    const numberOfPoints = 20;
 
     const interpolatedCoords = [];
 
